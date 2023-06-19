@@ -6,7 +6,7 @@ const Body = () => {
   const text = language.text;
 
   return (
-    <div>
+    <div className="body_container">
       <h1>{text?.title}</h1>
       <p>{text && text.description}</p>
     </div>

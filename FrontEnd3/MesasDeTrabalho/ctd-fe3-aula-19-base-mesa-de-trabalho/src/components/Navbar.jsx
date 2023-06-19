@@ -8,11 +8,16 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <p>{text?.home}</p>
-      <p>
+      <p className="font-mono text-base">{text?.home}</p>
+      <p className="font-mono text-base">
         {text?.current}: {language.id}
       </p>
-      <button onClick={handleChangeLA}>{text && text.button}</button>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={handleChangeLA}
+      >
+        {text && text.button}
+      </button>
     </div>
   );
 };
