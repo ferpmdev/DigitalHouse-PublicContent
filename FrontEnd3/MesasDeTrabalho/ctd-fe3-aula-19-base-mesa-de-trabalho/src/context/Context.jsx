@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
-import EN from './languages/english.json';
-import PTBR from './languages/portuguese.json';
-import ES from './languages/spanish.json';
+import EN from '../languages/english.json';
+import PTBR from '../languages/portuguese.json';
+import ES from '../languages/spanish.json';
 
 export const languages = {
   english: {
@@ -19,17 +19,12 @@ export const languages = {
 };
 
 /* DICA: Use o createContext e inicie o idioma inglês como padrão(default) */
-const LanguageContext = createContext();
 
 const Context = ({ children }) => {
-  const [languages, setLanguages] = useState({ EN });
+  const [language, setLanguage] = useState({ EN });
+
   return (
-    <LanguageContext.Provider
-      value={{
-        languages,
-        setLanguages,
-      }}
-    >
+    <LanguageContext.Provider value={{ language, setLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -37,4 +32,4 @@ const Context = ({ children }) => {
 
 export default Context;
 
-export const useLanguageContext = () => useContext(LanguageContext);
+export const LanguageContext = createContext();
